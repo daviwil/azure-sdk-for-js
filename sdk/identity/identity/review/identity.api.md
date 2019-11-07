@@ -60,7 +60,16 @@ export class ClientSecretCredential implements TokenCredential {
 
 // @public
 export class DefaultAzureCredential extends ChainedTokenCredential {
-    constructor(tokenCredentialOptions?: TokenCredentialOptions);
+    constructor(options?: DefaultAzureCredentialOptions);
+}
+
+// @public
+export interface DefaultAzureCredentialOptions extends TokenCredentialOptions {
+    excludeEnvironmentCredential?: boolean;
+    excludeInteractiveBrowserCredential?: boolean;
+    excludeManagedIdentityCredential?: boolean;
+    interactiveBrowserCredentialLoginStyle?: BrowserLoginStyle;
+    managedIdentityClientId?: string;
 }
 
 // @public
